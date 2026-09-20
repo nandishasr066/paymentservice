@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "manojkrishnappa/paymentservice:${GIT_COMMIT}"
+        IMAGE_NAME = "nandishasrn/paymentservice:${GIT_COMMIT}"
     }
 
     stages {
 
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/ITkannadigaru/paymentservice.git', branch: 'main'
+                git url: 'https://github.com/nandishasr066/paymentservice.git', branch: 'main'
             }
         }
 
@@ -52,7 +52,7 @@ pipeline {
                             echo "gitops directory exists. Removing it..."
                             rm -rf gitops
                         fi
-                        git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/ITkannadigaru/GitOps.git gitops
+                        git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/nandishasr066/GitOps.git gitops
                         cd gitops/base/paymentservice/
 
                         git config user.email "jenkins@ci.com"
